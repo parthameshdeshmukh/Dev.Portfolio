@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     btn.disabled = false;
                 }, 3000);
             }
+        } else {
             alert('Please fill in all fields.');
         }
     });
@@ -206,7 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModal();
     });
-
     // Navbar scroll effect
     const navbar = document.querySelector('nav');
     window.addEventListener('scroll', () => {
