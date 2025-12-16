@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Racing+Sans+One&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0d0d0d;
+    color: #e5e7eb;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00aaff;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0088cc;
+}
+
+/* Neon Glow Utilities */
+.neon-text {
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.7), 0 0 20px rgba(0, 170, 255, 0.5);
+}
+
+.neon-border {
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.5), inset 0 0 5px rgba(0, 170, 255, 0.2);
+}
+
+/* Glassmorphism */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+/* Blob Background */
+.blob {
+    position: absolute;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.4;
+    animation: moveBlob 10s infinite alternate;
+}
+
+@keyframes moveBlob {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(20px, -20px) scale(1.1);
+    }
+}
+
+/* Racetrack Underline Effect */
+.racetrack-text::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #00aaff, transparent);
+    background-size: 200% 100%;
+    animation: race 2s linear infinite;
+    border-radius: 2px;
+}
+
+@keyframes race {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+/* Carbon Fiber Background Pattern */
+.carbon-fiber {
+    background:
+        radial-gradient(black 15%, transparent 16%) 0 0,
+        radial-gradient(black 15%, transparent 16%) 8px 8px,
+        radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px,
+        radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+    background-color: #111;
+    background-size: 16px 16px;
+}
+
+/* Metallic Card Effect */
+.metallic-card {
+    background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+    border: 1px solid #333;
+    box-shadow: 5px 5px 10px #050505, -5px -5px 10px #262626;
+}
+
+.metallic-card:hover {
+    border-color: #00aaff;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.3);
+}
+
+/* Auto Enthusiast Font Class */
+.font-bungee {
+    font-family: 'Racing Sans One', cursive;
+    /* Using Racing Sans One as it's more auto-themed */
+    letter-spacing: 1px;
+}

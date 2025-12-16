@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Frontend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0d0d0d',
+                        accent: '#00aaff',
+                        'accent-hover': '#0088cc',
+                    },
+                    boxShadow: {
+                        'neon': '0 0 10px rgba(0, 170, 255, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[#0d0d0d] text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 px-6 py-4 bg-transparent top-0">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold font-[Poppins] hover:text-accent transition-colors">Dev<span
+                    class="text-accent">.Portfolio</span></a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-accent transition-colors font-medium">Home</a>
+                <a href="#about" class="hover:text-accent transition-colors font-medium">About</a>
+                <a href="#skills" class="hover:text-accent transition-colors font-medium">Skills</a>
+                <a href="#projects" class="hover:text-accent transition-colors font-medium">Projects</a>
+                <a href="insights.html"
+                    class="font-bold bg-gradient-to-r from-cyan-400 to-blue-600 text-transparent bg-clip-text hover:opacity-80 transition-opacity">TorqueTalk</a>
+                <a href="#contact" class="hover:text-accent transition-colors font-medium">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg itemprop="image" id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-lg border-b border-white/10 p-4">
+            <div class="flex flex-col space-y-4 text-center">
+                <a href="#home" class="block hover:text-accent py-2">Home</a>
+                <a href="#about" class="block hover:text-accent py-2">About</a>
+                <a href="#skills" class="block hover:text-accent py-2">Skills</a>
+                <a href="#projects" class="block hover:text-accent py-2">Projects</a>
+                <a href="insights.html"
+                    class="block py-2 font-bold bg-gradient-to-r from-cyan-400 to-blue-600 text-transparent bg-clip-text hover:opacity-80 transition-opacity">TorqueTalk</a>
+                <a href="#contact" class="block hover:text-accent py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+        <!-- Background Glow -->
+        <div class="blob w-96 h-96 bg-accent rounded-full absolute -top-20 -left-20 mix-blend-screen opacity-20"></div>
+        <div
+            class="blob w-96 h-96 bg-purple-600 rounded-full absolute bottom-0 right-0 mix-blend-screen opacity-20 animation-delay-2000">
+        </div>
+
+        <div class="text-center z-10 px-4 reveal">
+            <h2 class="text-xl md:text-2xl text-accent font-medium mb-4">Driven by code & fueled by creativity.</h2>
+            <h1 class="text-5xl md:text-7xl font-bold font-[Poppins] mb-6 leading-tight relative inline-block">
+                I'm <span
+                    class="bg-gradient-to-r from-cyan-400 to-blue-600 text-transparent bg-clip-text relative racetrack-text">Prathamesh</span>
+            </h1>
+            <div class="h-8 md:h-12 mb-8 flex items-center justify-center gap-3">
+                <p id="typewriter-text"
+                    class="text-lg md:text-2xl text-gray-400 font-mono border-r-2 border-accent pr-2 animate-pulse inline-block">
+                </p>
+                <!-- Spinning Gear Icon -->
+                <svg class="w-6 h-6 text-gray-600 animate-[spin_5s_linear_infinite]" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                    </path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center mt-8">
+                <a href="https://github.com/parthameshdeshmukh?tab=repositories" target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-8 py-3 bg-accent text-black font-semibold rounded-full hover:bg-white hover:shadow-[0_0_20px_rgba(0,170,255,0.6)] transition-all transform hover:scale-105">
+                    Explore My Work
+                </a>
+                <a href="Pratahmesh%20Resume.pdf" download
+                    class="px-8 py-3 border border-accent text-accent font-semibold rounded-full hover:bg-accent/10 hover:shadow-[0_0_20px_rgba(0,170,255,0.3)] transition-all transform hover:scale-105">
+                    Get My Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-black/30 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-[Poppins] reveal">About <span
+                    class="text-accent">Me</span></h2>
+
+            <div class="flex flex-col md:flex-row items-center gap-12 reveal">
+                <!-- Profile Image -->
+                <div class="relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0 group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-accent to-purple-600 rounded-full blur-lg opacity-70 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <img src="profileImage.jpg" alt="Profile"
+                        class="relative w-full h-full object-cover rounded-full border-2 border-white/20 p-1 bg-black">
+                </div>
+
+                <!-- Content -->
+                <div class="flex-1 glass p-8 rounded-2xl neon-border hover:bg-white/5 transition-colors">
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        I am a Frontend Developer with a strong interest in building responsive and reliable web
+                        applications. Working with the MERN stack has strengthened my understanding of modern web
+                        development, and I enjoy writing clean, efficient code that solves real-world problems.
+                    </p>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        I’m also exploring the world of Web3 and decentralized technologies, and I’m excited about how
+                        they can shape the future of the web.
+                    </p>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                        Outside of tech, I’m an automotive enthusiast who loves exploring engineering decisions, market
+                        trends, and the logic behind the machines we drive. This combination of analytical thinking and
+                        curiosity shapes the way I approach development and continuous learning.
+                    </p>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div
+                            class="text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:border-accent/50 transition-colors">
+                            <h3 class="text-3xl font-bold text-accent mb-1">10+</h3>
+                            <p class="text-sm text-gray-400">Projects Completed</p>
+                        </div>
+                        <div
+                            class="text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:border-accent/50 transition-colors">
+                            <h3 class="text-3xl font-bold text-accent mb-1">2+</h3>
+                            <p class="text-sm text-gray-400">Years Experience</p>
+                        </div>
+                        <div
+                            class="text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:border-accent/50 transition-colors">
+                            <h3 class="text-3xl font-bold text-accent mb-1">MERN</h3>
+                            <p class="text-sm text-gray-400">Stack Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-[Poppins] reveal">My <span
+                    class="text-accent">Skills</span></h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
+                <!-- Skill Cards -->
+                <div
+                    class="glass p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:scale-105 hover:shadow-neon transition-all duration-300 cursor-pointer">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                        class="w-16 h-16" alt="HTML">
+                    <span class="font-semibold text-lg">HTML5</span>
+                </div>
+                <div
+                    class="glass p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:scale-105 hover:shadow-neon transition-all duration-300 cursor-pointer">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                        class="w-16 h-16" alt="CSS">
+                    <span class="font-semibold text-lg">CSS3</span>
+                </div>
+                <div
+                    class="glass p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:scale-105 hover:shadow-neon transition-all duration-300 cursor-pointer">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        class="w-16 h-16" alt="JavaScript">
+                    <span class="font-semibold text-lg">JavaScript</span>
+                </div>
+                <div
+                    class="glass p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:scale-105 hover:shadow-neon transition-all duration-300 cursor-pointer">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+                        class="w-16 h-16" alt="Tailwind">
+                    <span class="font-semibold text-lg">Tailwind</span>
+                </div>
+                <div
+                    class="glass p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:scale-105 hover:shadow-neon transition-all duration-300 cursor-pointer">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                        class="w-16 h-16" alt="React">
+                    <span class="font-semibold text-lg">React</span>
+                </div>
+                <div
+                    class="glass p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:scale-105 hover:shadow-neon transition-all duration-300 cursor-pointer">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                        class="w-16 h-16" alt="Node.js">
+                    <span class="font-semibold text-lg">Node.js</span>
+                </div>
+                <div
+                    class="glass p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:scale-105 hover:shadow-neon transition-all duration-300 cursor-pointer">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                        class="w-16 h-16" alt="MongoDB">
+                    <span class="font-semibold text-lg">MongoDB</span>
+                </div>
+                <div
+                    class="glass p-6 rounded-xl flex flex-col items-center justify-center gap-4 hover:scale-105 hover:shadow-neon transition-all duration-300 cursor-pointer">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-16 h-16"
+                        alt="Git">
+                    <span class="font-semibold text-lg">Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-black/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-[Poppins] reveal">Featured <span
+                    class="text-accent">Projects</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+
+                <!-- Project Card 1 -->
+                <div
+                    class="group glass rounded-xl overflow-hidden hover:shadow-neon transition-all duration-300 hover:-translate-y-2">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 1"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                            <a href="#"
+                                class="p-2 bg-white rounded-full text-black hover:bg-accent transition-colors"><svg
+                                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                    </path>
+                                </svg></a>
+                            <a href="https://github.com/parthameshdeshmukh/CodeMaster.git"
+                                class="p-2 bg-white rounded-full text-black hover:bg-accent transition-colors"><svg
+                                    class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2"> CodeMaster </h3>
+                        <p class="text-gray-400 text-sm mb-4">A full-stack interactive coding platform with real-time
+                            execution, instant feedback, and structured learning tools. Developed using React,
+                            TypeScript, Node.js, and PostgreSQL with a custom code judge engine</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">React</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">Node.js</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">TypeScript</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div
+                    class="group glass rounded-xl overflow-hidden hover:shadow-neon transition-all duration-300 hover:-translate-y-2">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 2"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                            <a href="#"
+                                class="p-2 bg-white rounded-full text-black hover:bg-accent transition-colors"><svg
+                                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                    </path>
+                                </svg></a>
+                            <a href="https://github.com/parthameshdeshmukh/1-Shift-Down--Major-year-project-.git"
+                                class="p-2 bg-white rounded-full text-black hover:bg-accent transition-colors"><svg
+                                    class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">1Shift Down</h3>
+                        <p class="text-gray-400 text-sm mb-4"></p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">React</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div
+                    class="group glass rounded-xl overflow-hidden hover:shadow-neon transition-all duration-300 hover:-translate-y-2">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 3"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                            <a href="#"
+                                class="p-2 bg-white rounded-full text-black hover:bg-accent transition-colors"><svg
+                                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                    </path>
+                                </svg></a>
+                            <a href="#"
+                                class="p-2 bg-white rounded-full text-black hover:bg-accent transition-colors"><svg
+                                    class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Weather Dashboard</h3>
+                        <p class="text-gray-400 text-sm mb-4">Real-time weather application using OpenWeatherMap API.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">JavaScript</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div
+                    class="group glass rounded-xl overflow-hidden hover:shadow-neon transition-all duration-300 hover:-translate-y-2">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 4"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                            <a href="#"
+                                class="p-2 bg-white rounded-full text-black hover:bg-accent transition-colors"><svg
+                                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                    </path>
+                                </svg></a>
+                            <a href="#"
+                                class="p-2 bg-white rounded-full text-black hover:bg-accent transition-colors"><svg
+                                    class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Social Media Dashboard</h3>
+                        <p class="text-gray-400 text-sm mb-4">Analytics dashboard with chart visualizations.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">Vue.js</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">Chart.js</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 5 -->
+                <div
+                    class="group glass rounded-xl overflow-hidden hover:shadow-neon transition-all duration-300 hover:-translate-y-2">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 5"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                            <a href="#"
+                                class="p-2 bg-white rounded-full text-black hover:bg-accent transition-colors"><svg
+                                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                    </path>
+                                </svg></a>
+                            <a href="#"
+                                class="p-2 bg-white rounded-full text-black hover:bg-accent transition-colors"><svg
+                                    class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Chat Application</h3>
+                        <p class="text-gray-400 text-sm mb-4">Real-time messaging app with WebSockets.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">Socket.io</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">Express</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 6 -->
+                <div
+                    class="group glass rounded-xl overflow-hidden hover:shadow-neon transition-all duration-300 hover:-translate-y-2">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 6"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                            <a href="#"
+                                class="p-2 bg-white rounded-full text-black hover:bg-accent transition-colors"><svg
+                                    class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                    </path>
+                                </svg></a>
+                            <a href="#"
+                                class="p-2 bg-white rounded-full text-black hover:bg-accent transition-colors"><svg
+                                    class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Recipe Info App</h3>
+                        <p class="text-gray-400 text-sm mb-4">Find detailed recipes using a food API.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">React</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-xs text-accent">API</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-[Poppins] reveal">Contact <span
+                    class="text-accent">Me</span></h2>
+
+            <div class="glass p-8 md:p-12 rounded-2xl neon-border reveal">
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                    <input type="hidden" name="access_key" value="d6a1036d-fe66-4183-8a93-c1ef5002a674">
+                    <input type="hidden" name="subject" value="New Submission from Portfolio">
+                    <!-- <input type="hidden" name="from_name" value="Portfolio Contact Form"> -->
+                    <input type="checkbox" name="botcheck" id="" style="display: none;">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
+                            <input type="text" id="name"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:shadow-neon transition-all"
+                                placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Your Email</label>
+                            <input type="email" id="email"
+                                class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:shadow-neon transition-all"
+                                placeholder="john@example.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                        <textarea id="message" rows="5"
+                            class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:shadow-neon transition-all"
+                            placeholder="Hello, I'd like to work with you..."></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full md:w-auto px-8 py-3 bg-accent text-black font-bold rounded-lg hover:bg-white hover:shadow-neon transition-all transform hover:scale-105">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-black border-t border-white/10 text-center relative z-10">
+        <div class="flex justify-center gap-6 mb-4">
+            <a href="https://github.com/parthameshdeshmukh" target="_blank" rel="noopener noreferrer"
+                class="text-gray-400 hover:text-accent transition-colors"><svg class="w-6 h-6" fill="currentColor"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg></a>
+            <a href="https://www.linkedin.com/in/prathamesh-deshmukh-297a81259/" target="_blank"
+                rel="noopener noreferrer" class="text-gray-400 hover:text-accent transition-colors"><svg class="w-6 h-6"
+                    fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg></a>
+            <a href="#" target="_blank" rel="noopener noreferrer"
+                class="text-gray-400 hover:text-accent transition-colors"><svg class="w-6 h-6" fill="currentColor"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                </svg></a>
+        </div>
+        <!-- <p class="text-gray-500 text-sm">Made with ❤️ using Tailwind CSS & JavaScript</p> -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
