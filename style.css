@@ -106,7 +106,7 @@ h6 {
     height: 4px;
     background: linear-gradient(90deg, transparent, #00aaff, transparent);
     background-size: 200% 100%;
-    animation: race 2s linear infinite;
+    animation: race 2s linear infinite alternate;
     border-radius: 2px;
 }
 
@@ -148,4 +148,147 @@ h6 {
     font-family: 'Racing Sans One', cursive;
     /* Using Racing Sans One as it's more auto-themed */
     letter-spacing: 1px;
+}
+
+/* 3D Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    /* Ensure black background for cleaner crossfades */
+}
+
+.slideshow-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: kenBurns 30s infinite linear;
+    transform-origin: center center;
+}
+
+@keyframes kenBurns {
+    0% {
+        opacity: 0;
+        transform: scale(1.0);
+    }
+
+    2% {
+        opacity: 1;
+    }
+
+    12% {
+        opacity: 1;
+    }
+
+    14% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}
+
+/* Image delays for continuous loop (30s total / 10 images = 3s per image) */
+.slideshow-img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.slideshow-img:nth-child(2) {
+    animation-delay: 3s;
+}
+
+.slideshow-img:nth-child(3) {
+    animation-delay: 6s;
+}
+
+.slideshow-img:nth-child(4) {
+    animation-delay: 9s;
+}
+
+.slideshow-img:nth-child(5) {
+    animation-delay: 12s;
+}
+
+.slideshow-img:nth-child(6) {
+    animation-delay: 15s;
+}
+
+.slideshow-img:nth-child(7) {
+    animation-delay: 18s;
+}
+
+.slideshow-img:nth-child(8) {
+    animation-delay: 21s;
+}
+
+.slideshow-img:nth-child(9) {
+    animation-delay: 24s;
+}
+
+.slideshow-img:nth-child(10) {
+    animation-delay: 27s;
+}
+
+/* Horizontal Project Slider Styles */
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 2rem 0;
+    /* Add some padding for shadow effects not to be cut off */
+}
+
+.slider-track {
+    display: flex;
+    width: max-content;
+    gap: 2rem;
+    animation: slideRight 40s linear infinite;
+}
+
+/* Pause on Hover */
+.slider-container:hover .slider-track {
+    animation-play-state: paused;
+}
+
+/* Slide Animation: Move from -50% to 0% because we will duplicate the items.
+   We have 2 sets of items. We want to slide continuously.
+   If we move from 0 to -50% (left), it looks like items are moving left.
+   Target: Left -> Right.
+   So we start at -50% (showing the second set) and move to 0% (showing the first set).
+   Or start at -50% and move to 0%. 
+   Let's check logic:
+   -50% means we are shifted left by half the width. So we see the second half.
+   As we go to 0%, we shift right. So items appear to move right. Yes.
+*/
+@keyframes slideRight {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* Ensure cards in slider maintain width */
+.slider-track>div {
+    width: 350px;
+    /* Fixed width for consistency in slider */
+    flex-shrink: 0;
+}
+
+/* Adjust for mobile if needed */
+@media (max-width: 768px) {
+    .slider-track>div {
+        width: 300px;
+    }
 }

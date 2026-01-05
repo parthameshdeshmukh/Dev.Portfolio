@@ -1,19 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Typewriter Effect
+    // Typewriter Effect (Faster & Looping)
     const textElement = document.getElementById('typewriter-text');
-    const textToType = "Frontend Developer • MERN Stack • Automotive Enthusiast";
+    const textToType = "Frontend Developer • MERN Stack • Automotive Enthusiast ";
     let index = 0;
+    let isDeleting = false;
 
     function typeWriter() {
-        if (index < textToType.length) {
-            textElement.innerHTML += textToType.charAt(index);
-            index++;
-            setTimeout(typeWriter, 50);
+        if (!isDeleting) {
+            // Typing forward
+            if (index < textToType.length) {
+                textElement.innerHTML = textToType.substring(0, index + 1);
+                index++;
+                setTimeout(typeWriter, 50);
+            } else {
+                // Finished typing
+                isDeleting = true;
+                setTimeout(typeWriter, 2000);
+            }
+        } else {
+            // Deleting backward
+            if (index > 0) {
+                textElement.innerHTML = textToType.substring(0, index - 1);
+                index--;
+                setTimeout(typeWriter, 30);
+            } else {
+                // Finished deleting
+                isDeleting = false;
+                setTimeout(typeWriter, 500);
+            }
         }
     }
 
-    // Start typewriter slightly after load
-    setTimeout(typeWriter, 200);
+    // Start typewriter immediately
+    typeWriter();
 
     // Mobile Menu Toggle
     const menuBtn = document.getElementById('menu-btn');
@@ -117,31 +136,71 @@ document.addEventListener('DOMContentLoaded', () => {
     if (insightsGrid && typeof insightsData !== 'undefined') {
         const renderInsights = (filter = 'all') => {
             insightsGrid.innerHTML = '';
+            let index = 0; // Initialize index for layout logic
 
             insightsData.forEach(item => {
                 if (filter === 'all' || item.category === filter) {
                     const card = document.createElement('article');
-                    card.className = `glass p-6 rounded-xl hover:-translate-y-2 transition-transform duration-300 border-t-2 border-transparent hover:border-accent group fade-in-up cursor-pointer`;
+
+                    // --- SONIC STYLE CARD LOGIC ---
+                    // Dark, Glow-on-hover, Clean Typography
+                    let colSpanClass = 'col-span-12 md:col-span-4'; // Default to 3-up
+                    let heightClass = 'min-h-[300px]';
+                    let titleSizeClass = 'text-xl';
+
+                    if (filter === 'all') {
+                        if (index === 0) {
+                            // HERO CARD: Full Width, Centered, Impactful
+                            colSpanClass = 'col-span-12';
+                            heightClass = 'min-h-[450px]';
+                            titleSizeClass = 'text-4xl md:text-6xl text-center';
+                        } else if (index === 1 || index === 2) {
+                            colSpanClass = 'col-span-12 md:col-span-6'; // Split
+                            heightClass = 'min-h-[350px]';
+                            titleSizeClass = 'text-2xl md:text-3xl';
+                        }
+                    }
+
+                    card.className = `${colSpanClass} relative group cursor-pointer flex flex-col p-8 border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-accent/50 hover:shadow-[0_0_50px_rgba(0,170,255,0.15)] transition-all duration-500 ease-out rounded-2xl overflow-hidden`;
                     card.setAttribute('data-category', item.category);
                     card.onclick = () => openModal(item);
 
-                    // Simple Icon Logic based on Category
-                    let iconPath = '';
-                    if (item.category === 'market') iconPath = 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z';
-                    else if (item.category === 'ev') iconPath = 'M13 10V3L4 14h7v7l9-11h-7z';
-                    else iconPath = 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z';
+                    // Category Colors (Glowing Pills)
+                    let catColor = 'text-gray-400 border-gray-700';
+                    if (item.category === 'market') catColor = 'text-green-400 border-green-500/30 shadow-[0_0_10px_rgba(74,222,128,0.2)]';
+                    if (item.category === 'engineering') catColor = 'text-blue-400 border-blue-500/30 shadow-[0_0_10px_rgba(96,165,250,0.2)]';
+                    if (item.category === 'strategy') catColor = 'text-purple-400 border-purple-500/30 shadow-[0_0_10px_rgba(192,132,252,0.2)]';
+
+                    // Alignment Logic
+                    let alignClass = (index === 0 && filter === 'all') ? 'items-center text-center' : 'items-start text-left';
+                    let summaryClass = (index === 0 && filter === 'all') ? 'mx-auto text-center' : '';
 
                     card.innerHTML = `
-                        <div class="mb-4 text-accent">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="${iconPath}"></path>
-                            </svg>
+                        <div class="w-full flex ${index === 0 && filter === 'all' ? 'justify-center' : 'justify-start'} mb-6">
+                            <span class="px-3 py-1 border ${catColor} bg-white/5 text-[10px] font-bold uppercase tracking-widest rounded-full backdrop-blur-sm">${item.category}</span>
                         </div>
-                        <h3 class="text-xl font-bold font-[Poppins] mb-3 group-hover:text-accent transition-colors">${item.title}</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">${item.summary}</p>
-                        <span class="inline-flex items-center text-sm font-semibold text-accent group-hover:underline">read study <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></span>
+                        
+                        <div class="flex-grow flex flex-col ${alignClass} w-full relative z-10">
+                            <h3 class="${titleSizeClass} font-bold font-[Poppins] text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-blue-500 transition-all leading-[1.1] tracking-tight">
+                                ${item.title}
+                            </h3>
+                            
+                            <p class="text-gray-400 text-lg leading-relaxed mb-6 max-w-3xl ${summaryClass}">
+                                ${item.summary}
+                            </p>
+                        </div>
+                        
+                        <!-- Footer -->
+                        <div class="mt-auto w-full flex items-center ${index === 0 && filter === 'all' ? 'justify-center' : 'justify-between'} border-t border-white/5 pt-6 opacity-60 group-hover:opacity-100 transition-opacity">
+                            <span class="text-xs font-mono text-gray-500">${item.date || 'LATEST'}</span>
+                            <span class="flex items-center gap-2 text-accent text-sm font-bold uppercase tracking-wide group-hover:translate-x-1 transition-transform">
+                                Read Case Study <span class="text-lg">→</span>
+                            </span>
+                        </div>
                     `;
                     insightsGrid.appendChild(card);
+
+                    index++; // Increment index for layout logic
                 }
             });
         };
@@ -153,11 +212,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const filterBtns = document.querySelectorAll('.filter-btn');
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active', 'bg-accent/10', 'text-accent', 'border-accent'));
-                filterBtns.forEach(b => b.classList.add('text-gray-400', 'border-white/10'));
+                // Reset all buttons to default state
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'text-accent', 'font-bold');
+                    b.classList.add('text-gray-600', 'font-medium');
+                });
 
-                btn.classList.add('active', 'bg-accent/10', 'text-accent', 'border-accent');
-                btn.classList.remove('text-gray-400', 'border-white/10');
+                // Activate clicked button
+                btn.classList.add('active', 'text-accent', 'font-bold');
+                btn.classList.remove('text-gray-600', 'font-medium');
 
                 renderInsights(btn.getAttribute('data-filter'));
             });
@@ -209,13 +272,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // Navbar scroll effect
     const navbar = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('bg-black/80', 'backdrop-blur-md', 'border-b', 'border-white/10');
-            navbar.classList.remove('bg-transparent');
+
+    // Function to update navbar state
+    const updateNavbar = () => {
+        if (window.scrollY > 20) {
+            navbar.classList.add('bg-black/60', 'backdrop-blur-md', 'border-b', 'border-white/10');
+            navbar.classList.remove('bg-transparent', 'py-4');
+            navbar.classList.add('py-3'); // Shrink slightly
         } else {
-            navbar.classList.remove('bg-black/80', 'backdrop-blur-md', 'border-b', 'border-white/10');
-            navbar.classList.add('bg-transparent');
+            navbar.classList.remove('bg-black/60', 'backdrop-blur-md', 'border-b', 'border-white/10', 'py-3');
+            navbar.classList.add('bg-transparent', 'py-4');
         }
-    });
+    };
+
+    window.addEventListener('scroll', updateNavbar);
+    updateNavbar(); // Check on load
 });
