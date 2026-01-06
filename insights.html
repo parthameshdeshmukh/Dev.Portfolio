@@ -28,7 +28,8 @@
 <body class="bg-[#0d0d0d] text-white carbon-fiber">
 
     <!-- Navbar (Consistent with Main) -->
-    <nav class="fixed w-full z-50 transition-all duration-300 px-6 py-4 bg-[#0d0d0d]/60 backdrop-blur-md border-b border-white/10 top-0">
+    <nav
+        class="fixed w-full z-50 transition-all duration-300 px-6 py-4 bg-[#0d0d0d]/60 backdrop-blur-md border-b border-white/10 top-0">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold font-[Poppins] hover:text-accent transition-colors">Dev<span
                     class="text-accent">.Portfolio</span></a>
@@ -114,91 +115,9 @@
     <main class="bg-[#0d0d0d] relative min-h-screen pt-20 pb-40">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
 
-            <!-- FEATURED CONTENT ZONE (No box, high hierarchy) -->
-            <article class="mb-32 relative group">
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-                    <div class="md:col-span-8">
-                        <span class="block text-xs font-mono text-cyan-500/80 mb-4">FEATURED CASE STUDY</span>
-                        <h2
-                            class="text-4xl md:text-5xl font-bold font-[Poppins] text-white mb-6 leading-tight group-hover:text-gray-200 transition-colors cursor-pointer">
-                            The Death of the Entry-Level Hatchback:<br>
-                            Is India Ready?
-                        </h2>
-                        <p class="text-gray-400 text-lg leading-loose mb-8 max-w-2xl">
-                            Analyzing the systematic dismantling of the sub-5-lakh segment. Why OEMs are abandoning
-                            volume for value, and what it means for first-time buyers.
-                        </p>
-                        <a href="#"
-                            class="inline-flex items-center gap-2 text-cyan-400 text-sm font-bold uppercase tracking-wide hover:gap-4 transition-all">
-                            Read Analysis <span aria-hidden="true">&rarr;</span>
-                        </a>
-                    </div>
-                    <!-- Minimal visual anchor for featured item -->
-                    <div class="hidden md:block md:col-span-4 self-end">
-                        <div class="h-px w-full bg-white/10 mb-4"></div>
-                        <div class="text-right">
-                            <div class="text-xs text-gray-600 font-mono mb-1">DATA POINT</div>
-                            <div class="text-2xl font-light text-white">42% Drop</div>
-                            <div class="text-xs text-gray-500">In entry segment sales (YoY)</div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-
-            <!-- MAIN INSIGHTS ZONE (Editorial Rhythm) -->
-            <div class="mb-32">
-                <!-- Section Label -->
-                <div class="flex items-baseline justify-between mb-16 border-b border-white/5 pb-4">
-                    <h3 class="text-xl font-medium text-white">Recent Observations</h3>
-                    <span class="text-xs font-mono text-gray-600">Q4 2024</span>
-                </div>
-
-                <!-- Article 1: Wide Layout -->
-                <article class="mb-24 group">
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                        <div class="md:col-span-3">
-                            <span class="text-xs font-mono text-gray-500">ENGINEERING</span>
-                        </div>
-                        <div
-                            class="md:col-span-9 border-l border-white/5 pl-8 md:pl-12 hover:border-cyan-500/30 transition-colors">
-                            <h3
-                                class="text-3xl font-bold font-[Poppins] text-white mb-4 group-hover:text-cyan-400 transition-colors cursor-pointer">
-                                Example: The Monocoque Shift</h3>
-                            <p class="text-gray-400 leading-relaxed max-w-3xl mb-4">
-                                Why Tata Motors pivoted its entire SUV strategy away from ladder-frames for the mass
-                                market, and how Mahindra doubled down. A structural divergence.
-                            </p>
-                            <span class="text-xs text-gray-600">5 min read</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Article 2 & 3: Side by Side (Asymmetrical) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 mb-24">
-                    <article class="group">
-                        <span
-                            class="block text-xs font-mono text-gray-500 mb-4 border-t border-white/10 pt-4 w-8">STRATEGY</span>
-                        <h3
-                            class="text-2xl font-bold font-[Poppins] text-white mb-3 group-hover:text-cyan-400 transition-colors">
-                            Citroën’s Cost Cutting Gamble</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                            Visible cost-cutting vs. invisible engineering. Where the line was crossed in the C3
-                            Aircross.
-                        </p>
-                    </article>
-
-                    <article class="group">
-                        <span
-                            class="block text-xs font-mono text-gray-500 mb-4 border-t border-white/10 pt-4 w-8">MARKET</span>
-                        <h3
-                            class="text-2xl font-bold font-[Poppins] text-white mb-3 group-hover:text-cyan-400 transition-colors">
-                            The MPV Resurgence</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                            It's not just for fleets anymore. How the Carens changed the family perception.
-                        </p>
-                    </article>
-                </div>
+            <!-- MAIN INSIGHTS ZONE (Dynamic Grid) -->
+            <div id="insights-grid" class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-32">
+                <!-- Content will be injected here by script.js -->
             </div>
 
 
@@ -211,22 +130,22 @@
 
                 <div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                     <!-- Note 1 -->
-                    <div class="bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors">
-                        <div class="text-cyan-500 text-xs font-mono mb-2">FY24 DATA</div>
-                        <p class="text-gray-300 text-sm font-medium leading-relaxed">"Hybrid sales have officially
-                            overtaken BEV sales in the >20L segment for the first time this quarter."</p>
+                    <div class="bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors border border-white/5">
+                        <div class="text-cyan-500 text-xs font-mono mb-2">FY25 TREND</div>
+                        <p class="text-gray-300 text-sm font-medium leading-relaxed">"Sunroof penetration in sub-10L
+                            cars has hit 40%. It's no longer a luxury; it's a hygiene feature."</p>
                     </div>
                     <!-- Note 2 -->
-                    <div class="bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors">
-                        <div class="text-gray-500 text-xs font-mono mb-2">OBSERVATION</div>
-                        <p class="text-gray-300 text-sm font-medium leading-relaxed">Active cooling in batteries is
-                            becoming standard even in budget EVs. The passive era is over.</p>
+                    <div class="bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors border border-white/5">
+                        <div class="text-gray-500 text-xs font-mono mb-2">EV LANDSCAPE</div>
+                        <p class="text-gray-300 text-sm font-medium leading-relaxed">"The Tata Curvv EV has validated
+                            the 'Coupe-SUV' shape. Expect 3 more contenders by Q2 2025."</p>
                     </div>
                     <!-- Note 3 -->
-                    <div class="bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors">
-                        <div class="text-gray-500 text-xs font-mono mb-2">PREDICTION</div>
-                        <p class="text-gray-300 text-sm font-medium leading-relaxed">The sub-4m sedan segment will
-                            likely shrink by another 15% by 2026.</p>
+                    <div class="bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors border border-white/5">
+                        <div class="text-red-400 text-xs font-mono mb-2">END OF AN ERA</div>
+                        <p class="text-gray-300 text-sm font-medium leading-relaxed">"Diesel share in Hatchbacks is now
+                            0%. The era of the frugal 'Swift Diesel' is officially dead."</p>
                     </div>
                 </div>
             </div>
@@ -249,29 +168,58 @@
         <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" id="modal-backdrop"></div>
 
         <!-- Modal Content -->
-        <div
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black/90 backdrop-blur-sm p-6 rounded-lg shadow-lg">
-            <span id="modal-date">Date</span>
-            <span class="w-1 h-1 bg-gray-600 rounded-full mx-2"></span>
-            <span>Prathamesh Deshmukh</span>
-        </div>
+        <!-- Center the modal card in the viewport -->
+        <div id="modal-card"
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12 max-w-4xl max-h-[90vh] overflow-y-auto bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl transition-all duration-300 opacity-0 scale-95 flex flex-col">
 
-        <div id="modal-content" class="prose prose-invert max-w-none text-gray-300 leading-relaxed">
-            <!-- Content Injected Here -->
-        </div>
+            <!-- Modal Header (Sticky) -->
+            <div
+                class="p-6 border-b border-white/10 bg-[#0a0a0a]/95 backdrop-blur sticky top-0 z-20 flex justify-between items-start">
+                <div class="pr-8">
+                    <span id="modal-category"
+                        class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2 block">CATEGORY</span>
+                    <h2 id="modal-title" class="text-2xl md:text-3xl font-bold font-[Poppins] text-white leading-tight">
+                        Title Goes Here</h2>
+                    <div class="flex items-center gap-3 mt-3 text-sm text-gray-500 font-mono">
+                        <span id="modal-date">Date</span>
+                        <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                        <span>Prathamesh Deshmukh</span>
+                    </div>
+                </div>
+                <button id="close-modal"
+                    class="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
 
-        <div class="mt-8 pt-6 border-t border-white/10 flex justify-between items-center">
-            <button class="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z">
-                    </path>
-                </svg>
-                Share Opinion
-            </button>
-            <a href="index.html#contact"
-                class="px-6 py-2 border border-accent text-accent hover:bg-accent hover:text-black rounded-full transition-all text-sm font-bold">Disclaimer
-                / Contact</a>
+            <!-- Scrollable Content -->
+            <div class="p-6 md:p-8">
+                <img id="modal-image" src="" alt="Cover"
+                    class="w-full h-64 md:h-96 object-cover rounded-lg mb-8 border border-white/5">
+
+                <div id="modal-content" class="prose prose-invert max-w-none text-gray-300 leading-relaxed">
+                    <!-- Dynamic Content Injected Here -->
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="p-6 border-t border-white/10 bg-[#0a0a0a] flex justify-between items-center mt-auto">
+                <button class="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z">
+                        </path>
+                    </svg>
+                    Share Analysis
+                </button>
+                <a href="index.html#contact"
+                    class="px-6 py-2 border border-accent text-accent hover:bg-accent hover:text-black rounded-sm text-sm font-bold uppercase tracking-wider transition-all">
+                    Reach Out
+                </a>
+            </div>
         </div>
     </div>
     </div>

@@ -136,72 +136,103 @@ document.addEventListener('DOMContentLoaded', () => {
     if (insightsGrid && typeof insightsData !== 'undefined') {
         const renderInsights = (filter = 'all') => {
             insightsGrid.innerHTML = '';
-            let index = 0; // Initialize index for layout logic
+            let layoutIndex = 0; // For tracking layout position
 
-            insightsData.forEach(item => {
-                if (filter === 'all' || item.category === filter) {
-                    const card = document.createElement('article');
+            insightsData.forEach((item, index) => {
+                // Determine if we should show this item
+                if (filter !== 'all' && item.category !== filter) return;
 
-                    // --- SONIC STYLE CARD LOGIC ---
-                    // Dark, Glow-on-hover, Clean Typography
-                    let colSpanClass = 'col-span-12 md:col-span-4'; // Default to 3-up
-                    let heightClass = 'min-h-[300px]';
-                    let titleSizeClass = 'text-xl';
+                const card = document.createElement('article');
 
-                    if (filter === 'all') {
-                        if (index === 0) {
-                            // HERO CARD: Full Width, Centered, Impactful
-                            colSpanClass = 'col-span-12';
-                            heightClass = 'min-h-[450px]';
-                            titleSizeClass = 'text-4xl md:text-6xl text-center';
-                        } else if (index === 1 || index === 2) {
-                            colSpanClass = 'col-span-12 md:col-span-6'; // Split
-                            heightClass = 'min-h-[350px]';
-                            titleSizeClass = 'text-2xl md:text-3xl';
-                        }
+                // --- ASYMMETRIC LAYOUT LOGIC ---
+                let colSpanClass = 'col-span-12 md:col-span-4';
+                let heightClass = 'min-h-[300px]';
+                let titleSizeClass = 'text-xl';
+                let flexDir = 'flex-col';
+                let isFeatured = false;
+
+                if (filter === 'all') {
+                    if (layoutIndex === 0) {
+                        // 1. FEATURED (Hero)
+                        colSpanClass = 'col-span-12';
+                        heightClass = 'min-h-[500px]';
+                        titleSizeClass = 'text-4xl md:text-6xl';
+                        isFeatured = true;
+                    } else if (layoutIndex === 1) {
+                        // 2. WIDE (Secondary Focus)
+                        colSpanClass = 'col-span-12';
+                        heightClass = 'min-h-[350px]';
+                        titleSizeClass = 'text-3xl md:text-4xl';
+                    } else {
+                        // 3. SPLIT (Standard)
+                        colSpanClass = 'col-span-12 md:col-span-6';
+                        heightClass = 'min-h-[350px]';
+                        titleSizeClass = 'text-2xl';
                     }
+                } else {
+                    // Filtered view: Standard grid
+                    colSpanClass = 'col-span-12 md:col-span-6';
+                    titleSizeClass = 'text-2xl';
+                }
 
-                    card.className = `${colSpanClass} relative group cursor-pointer flex flex-col p-8 border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-accent/50 hover:shadow-[0_0_50px_rgba(0,170,255,0.15)] transition-all duration-500 ease-out rounded-2xl overflow-hidden`;
-                    card.setAttribute('data-category', item.category);
-                    card.onclick = () => openModal(item);
+                card.className = `${colSpanClass} relative group cursor-pointer flex ${flexDir} p-8 md:p-12 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-cyan-500/30 transition-all duration-500 ease-out rounded-xl overflow-hidden ${heightClass}`;
+                card.setAttribute('data-category', item.category);
+                card.onclick = () => openModal(item);
 
-                    // Category Colors (Glowing Pills)
-                    let catColor = 'text-gray-400 border-gray-700';
-                    if (item.category === 'market') catColor = 'text-green-400 border-green-500/30 shadow-[0_0_10px_rgba(74,222,128,0.2)]';
-                    if (item.category === 'engineering') catColor = 'text-blue-400 border-blue-500/30 shadow-[0_0_10px_rgba(96,165,250,0.2)]';
-                    if (item.category === 'strategy') catColor = 'text-purple-400 border-purple-500/30 shadow-[0_0_10px_rgba(192,132,252,0.2)]';
-
-                    // Alignment Logic
-                    let alignClass = (index === 0 && filter === 'all') ? 'items-center text-center' : 'items-start text-left';
-                    let summaryClass = (index === 0 && filter === 'all') ? 'mx-auto text-center' : '';
-
-                    card.innerHTML = `
-                        <div class="w-full flex ${index === 0 && filter === 'all' ? 'justify-center' : 'justify-start'} mb-6">
-                            <span class="px-3 py-1 border ${catColor} bg-white/5 text-[10px] font-bold uppercase tracking-widest rounded-full backdrop-blur-sm">${item.category}</span>
-                        </div>
-                        
-                        <div class="flex-grow flex flex-col ${alignClass} w-full relative z-10">
-                            <h3 class="${titleSizeClass} font-bold font-[Poppins] text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-blue-500 transition-all leading-[1.1] tracking-tight">
-                                ${item.title}
-                            </h3>
-                            
-                            <p class="text-gray-400 text-lg leading-relaxed mb-6 max-w-3xl ${summaryClass}">
-                                ${item.summary}
-                            </p>
-                        </div>
-                        
-                        <!-- Footer -->
-                        <div class="mt-auto w-full flex items-center ${index === 0 && filter === 'all' ? 'justify-center' : 'justify-between'} border-t border-white/5 pt-6 opacity-60 group-hover:opacity-100 transition-opacity">
-                            <span class="text-xs font-mono text-gray-500">${item.date || 'LATEST'}</span>
-                            <span class="flex items-center gap-2 text-accent text-sm font-bold uppercase tracking-wide group-hover:translate-x-1 transition-transform">
-                                Read Case Study <span class="text-lg">→</span>
-                            </span>
+                // Background Image (Subtle, Darkened) for larger cards
+                let bgImageStyle = '';
+                if (isFeatured || (layoutIndex === 1 && filter === 'all')) {
+                    // Add a subtle background image overlay
+                    card.innerHTML += `
+                        <div class="absolute inset-0 z-0">
+                            <img src="${item.image}" class="w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700 ease-out" alt="">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/80 to-transparent"></div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-[#0d0d0d] via-[#0d0d0d]/50 to-transparent"></div>
                         </div>
                     `;
-                    insightsGrid.appendChild(card);
-
-                    index++; // Increment index for layout logic
                 }
+
+                // Category Colors
+                let catColor = 'text-gray-400 border-gray-700';
+                if (item.category === 'market') catColor = 'text-emerald-400 border-emerald-500/30';
+                if (item.category === 'engineering') catColor = 'text-blue-400 border-blue-500/30';
+                if (item.category === 'strategy') catColor = 'text-purple-400 border-purple-500/30';
+
+                // Content Structure
+                const contentWrapper = document.createElement('div');
+                contentWrapper.className = "relative z-10 flex flex-col items-start h-full w-full max-w-4xl";
+
+                contentWrapper.innerHTML = `
+                    <div class="mb-6 flex items-center gap-4">
+                        <span class="px-3 py-1 border ${catColor} bg-black/20 text-xs font-mono font-bold uppercase tracking-widest rounded-full backdrop-blur-sm">
+                            ${item.category}
+                        </span>
+                        ${isFeatured ? '<span class="text-white text-xs font-mono uppercase tracking-widest animate-pulse">Featured Analysis</span>' : ''}
+                    </div>
+
+                    <h3 class="${titleSizeClass} font-bold font-[Poppins] text-white mb-6 group-hover:text-cyan-400 transition-colors leading-[1.1]">
+                        ${item.title}
+                    </h3>
+                    
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8 max-w-2xl line-clamp-3 group-hover:text-gray-300 transition-colors">
+                        ${item.summary}
+                    </p>
+                    
+                    <div class="mt-auto pt-6 border-t border-white/10 w-full flex justify-between items-center opacity-70 group-hover:opacity-100 transition-opacity">
+                        <div class="flex flex-col">
+                            <span class="text-xs font-mono text-gray-500 uppercase">Published</span>
+                            <span class="text-sm text-white font-mono">${item.date}</span>
+                        </div>
+                        <button class="flex items-center gap-2 text-cyan-400 text-sm font-bold uppercase tracking-wide group-hover:gap-4 transition-all">
+                            Read Full Report <span class="text-xl">→</span>
+                        </button>
+                    </div>
+                `;
+
+                card.appendChild(contentWrapper);
+                insightsGrid.appendChild(card);
+
+                layoutIndex++;
             });
         };
 
@@ -212,16 +243,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const filterBtns = document.querySelectorAll('.filter-btn');
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Reset all buttons to default state
                 filterBtns.forEach(b => {
                     b.classList.remove('active', 'text-accent', 'font-bold');
                     b.classList.add('text-gray-600', 'font-medium');
                 });
-
-                // Activate clicked button
                 btn.classList.add('active', 'text-accent', 'font-bold');
                 btn.classList.remove('text-gray-600', 'font-medium');
-
                 renderInsights(btn.getAttribute('data-filter'));
             });
         });
